@@ -2,7 +2,7 @@
 
 ## Description
 
-Briefly describe your project here, including its purpose and key features.
+**IQ Degree** is a comprehensive educational platform designed for children, offering a wide range of courses and interactive quizzes to enhance learning in a fun and engaging way. Built with modern web technologies, including React, Vite, TypeScript, Tailwind CSS, Express.js, MongoDB, and Mongoose, the platform aims to provide a seamless user experience for both students and educators.
 
 ## Technologies Used
 
