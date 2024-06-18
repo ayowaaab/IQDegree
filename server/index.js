@@ -20,5 +20,6 @@ const courses = require("./routers/Courses");
 app.use("/api/user", users);
 app.use("/api/course", courses);
 
+require('dotenv').config();
 const PORT = process.env.PORT | 3000;
 app.listen(PORT, () => console.log(`Listening at http://localhost:${PORT}...`));

@@ -1,4 +1,4 @@
-# IQ Degree
+<img src="./client/public/logo.png" alt="Logo" width="300">
 
 ## Description
 
