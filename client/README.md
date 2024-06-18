@@ -80,11 +80,50 @@ The production-ready build will be created in the `dist` folder.
 
 ## Building for Production
 
-
 ## Directory Structure
 
+```bash
+your-app/
+├── backend/
+│   ├── src/
+│   │   ├── controllers/
+│   │   │   └── YourController.ts
+│   │   ├── models/
+│   │   │   └── YourModel.ts
+│   │   ├── routes/
+│   │   │   └── apiRoutes.ts
+│   │   ├── services/
+│   │   │   └── YourService.ts
+│   │   ├── utils/
+│   │   │   └── someUtility.ts
+│   │   ├── app.ts
+│   │   └── server.ts
+│   ├── .env
+│   └── tsconfig.json
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── App.tsx
+│   │   ├── index.tsx
+│   │   └── ...
+│   └── ...
+├── .eslintrc.cjs
+├── .gitignore
+├── README.md
+├── index.html
+├── package-lock.json
+├── package.json
+├── postcss.config.js
+├── tailwind.config.js
+├── tsconfig.json
+├── tsconfig.node.json
+└── vite.config.ts
+```
+
 # Contact Information
-**ayoub1dahmen@gmail.com**  | 
+
+**ayoub1dahmen@gmail.com** |
 **[Linkedin](https://www.linkedin.com/in/ayoub-dahmen/)** |
 **[Instagram](https://www.linkedin.com/in/ayoub-dahmen/)** |
 **+216 51 012 285**
