@@ -1,4 +1,5 @@
-<img src="./client/public/logo.png" alt="Logo" width="300">
+<img src="https://github.com/ayowaaab/IQDegree/assets/101057048/f4003c8a-62e9-464e-9021-fc1d2564e9fe" alt="Logo" width="300">
+
 
 ## Description
 
