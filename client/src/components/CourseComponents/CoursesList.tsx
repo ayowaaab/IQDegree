@@ -16,7 +16,7 @@ const CoursesList = () => {
   return (
     <>
       {courses && (
-        <div className="grid grid-cols-4 w-[90%] mx-auto gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 mt-5 w-4/5 mx-auto gap-5">
           {courses.map((s) => (
             <CardCourse
               _id={s._id}

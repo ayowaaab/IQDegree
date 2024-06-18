@@ -1,12 +1,12 @@
-import React from 'react'
-import CoursesList from './components/CourseComponents/CoursesList'
+import Navbar from "./components/Navbar";
 
 const App = () => {
   return (
     <>
-      <CoursesList />
-    </>
-  )
-}
+      <Navbar />
 
-export default App
+    </>
+  );
+};
+
+export default App;

@@ -8,9 +8,9 @@ import Badge from "./Badge";
 
 interface Props extends Course {}
 
-const CardCourse = ({ title, description, subject, grade_level,_id }: Props) => {
+const CardCourse = ({ title, description, subject, grade_level }: Props) => {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card className="grid grid-cols-1 max-w-[345px]">
       {/* <CardMedia
         component="img"
         alt={`Course-img`}
@@ -18,16 +18,19 @@ const CardCourse = ({ title, description, subject, grade_level,_id }: Props) => 
         image="/static/images/cards/contemplative-reptile.jpg"
       /> */}
       <CardContent>
-        <Typography className="text-nowrap" gutterBottom variant="h5" component="div">
+        <Typography gutterBottom variant="h5" component="div">
           {title}
         </Typography>
         <Typography gutterBottom variant="h6" component="div">
           {grade_level}
         </Typography>
 
-        <Badge text={subject} color="#0097EC" />
-
-        <Typography className="line-clamp-3" variant="body2" color="text.secondary">
+        <Badge text={subject} />
+        <Typography
+          className="line-clamp-3"
+          variant="body2"
+          color="text.secondary"
+        >
           {description}
         </Typography>
       </CardContent>

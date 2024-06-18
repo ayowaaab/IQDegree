@@ -4,11 +4,6 @@ const Joi = require("joi");
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-  user_id: {
-    type: String,
-    required: true,
-    unique: true,
-  },
   name: {
     type: String,
     required: true,

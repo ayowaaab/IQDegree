@@ -3,11 +3,6 @@ const Joi = require("joi");
 const Schema = mongoose.Schema;
 
 const courseSchema = new Schema({
-  course_id: {
-    type: String,
-    required: true,
-    unique: true,
-  },
   title: {
     type: String,
     required: true,

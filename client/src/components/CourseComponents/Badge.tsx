@@ -1,19 +1,13 @@
 interface Props {
   text: string;
-  color: string;
 }
 
-const Badge = ({ text, color }: Props) => {
-  const btnStyle = {
-    border: `1px solid ${color}`,
-    borderRadius:`15px`,
-    padding:`.25rem 1rem`,
-    fontSize:".75rem",
-    marginBottom:".5rem",
-  };
+const Badge = ({ text }: Props) => {
   return (
     <>
-      <button style={btnStyle}>{text}</button>
+      <button className="text-xs rounded-3xl mb-2 border-[1px] border-sky-500 px-[1rem] py-[0.25rem]">
+        {text}
+      </button>
     </>
   );
 };
