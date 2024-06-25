@@ -13,11 +13,11 @@ const userSchema = new Schema({
     required: true,
     unique: true,
   },
-  password_hash: {
+  password: {
     type: String,
     required: true,
   },
-  role: {
+  roles: {
     type: String,
     enum: ["student", "parent", "instructor", "admin"],
     required: true,
@@ -28,15 +28,26 @@ const userSchema = new Schema({
   created_at: {
     type: Date,
     default: Date.now,
-    required: true,
   },
   updated_at: {
     type: Date,
     default: Date.now,
-    required: true,
   },
 });
 
+// ! userSchema.model.issmo = function name(){}
+
 const User = mongoose.model("User", userSchema);
 
-module.exports = User;
+function validateUser(user){
+  const schema = Joi.object({
+    name:Joi.string().required().min(3).max(30),
+    email:Joi.email().required(),
+    password:Joi.string().required().min(8),
+  })
+  return schema.validate(user);
+}
+
+
+module.exports.User = User;
+module.exports.validate = validateUser;
