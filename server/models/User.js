@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Joi = require("joi");
-
+const jwt = require("jsonwebtoken");
+const config = require("config");
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
@@ -24,6 +25,7 @@ const userSchema = new Schema({
   },
   profile_picture: {
     type: String,
+    default: "default.png",
   },
   created_at: {
     type: Date,
@@ -35,19 +37,25 @@ const userSchema = new Schema({
   },
 });
 
-// ! userSchema.model.issmo = function name(){}
+userSchema.methods.getAuthToken = function () {
+  return jwt.sign(
+    { _id: this._id, role: this.role },
+    config.get("jwtPrivateToken")
+  );
+};
 
 const User = mongoose.model("User", userSchema);
 
-function validateUser(user){
+function validateUser(user) {
   const schema = Joi.object({
-    name:Joi.string().required().min(3).max(30),
-    email:Joi.email().required(),
-    password:Joi.string().required().min(8),
-  })
+    name: Joi.string().required().min(3).max(30),
+    email: Joi.email().required(),
+    password: Joi.string().required().min(8),
+    profile_picture: Joi.string(),
+    roles: Joi.valid("student", "parent", "instructor", "admin").required(),
+  });
   return schema.validate(user);
 }
-
 
 module.exports.User = User;
 module.exports.validate = validateUser;

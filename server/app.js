@@ -17,8 +17,8 @@ mongoose
 
 const users = require("./routers/Users");
 const courses = require("./routers/Courses");
-app.use("/api/user", users);
-app.use("/api/course", courses);
+app.use("/api/users", users);
+app.use("/api/courses", courses);
 
 require('dotenv').config();
 const PORT = process.env.PORT | 3000;
