@@ -13,8 +13,8 @@ router.post("/", async (req, res) => {
   const test = await verifyPassword(req.body.password, user.password);
   if (!test) return res.status(400).send("Invalid email or password");
 
-  const token = User.getAuthToken();
-  res.status(201).send(token);
+  const token = user.getAuthToken();
+  res.status(200).send(token);
 });
 
 function validate(user) {
