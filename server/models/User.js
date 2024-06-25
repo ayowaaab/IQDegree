@@ -13,6 +13,7 @@ const userSchema = new Schema({
     type: String,
     required: true,
     unique: true,
+    match: [/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/, "Invalid Email Patterns !"],
   },
   password: {
     type: String,
@@ -21,6 +22,7 @@ const userSchema = new Schema({
   roles: {
     type: String,
     enum: ["student", "parent", "instructor", "admin"],
+    default: "student",
     required: true,
   },
   profile_picture: {
@@ -39,7 +41,7 @@ const userSchema = new Schema({
 
 userSchema.methods.getAuthToken = function () {
   return jwt.sign(
-    { _id: this._id, role: this.role },
+    { _id: this._id, roles: this.roles },
     config.get("jwtPrivateToken")
   );
 };
@@ -49,10 +51,12 @@ const User = mongoose.model("User", userSchema);
 function validateUser(user) {
   const schema = Joi.object({
     name: Joi.string().required().min(3).max(30),
-    email: Joi.email().required(),
+    email: Joi.string().required().email(),
     password: Joi.string().required().min(8),
     profile_picture: Joi.string(),
-    roles: Joi.valid("student", "parent", "instructor", "admin").required(),
+    roles: Joi.string()
+      .valid("student", "parent", "instructor", "admin")
+      .required(),
   });
   return schema.validate(user);
 }

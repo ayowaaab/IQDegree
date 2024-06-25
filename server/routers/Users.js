@@ -11,12 +11,13 @@ router.get("/me", auth, async (req, res) => {
 router.post("/", async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.message);
-  const verify = User.findOne({ email: req.body.email });
+  const verify = await User.findOne({ email: req.body.email });
   if (verify) return res.status(400).send("This email already exist");
+
   const hashed = await hashPassword(req.body.password);
   req.body.password = hashed;
   let user = new User(
-    _.pick(req.body, ["name", "email", "password", "role", "profile_picture"])
+    _.pick(req.body, ["name", "email", "password", "roles", "profile_picture"])
   );
   user = await user.save();
   res.status(200).send(_.pick(user, ["name", "email", "role"]));

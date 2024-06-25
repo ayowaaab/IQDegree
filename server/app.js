@@ -15,10 +15,13 @@ mongoose
   .catch(() => console.log("Couldn't connect to IQ Degree"));
 
 
+const auth = require("./routers/auth");
 const users = require("./routers/Users");
 const courses = require("./routers/Courses");
+
 app.use("/api/users", users);
 app.use("/api/courses", courses);
+app.use("/api/auth", auth);
 
 require('dotenv').config();
 const PORT = process.env.PORT | 3000;
